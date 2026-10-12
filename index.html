@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Odinne Zuleihat Eniola, journalism and media studies professional, writer, and content creator based in Lagos, Nigeria." />
+  <title>Odinne Zuleihat Eniola | Journalism & Media Portfolio</title>
+  <style>
+    :root {
+      --bg: #0d1014;
+      --panel: #151a20;
+      --panel-soft: #1b222b;
+      --text: #f4f5f7;
+      --muted: #aab3bf;
+      --accent: #d6ff72;
+      --line: rgba(255,255,255,.12);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px);
+      background: rgba(13,16,20,.86); border-bottom: 1px solid var(--line);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.05rem; }
+    .brand span { color: var(--accent); }
+    .navlinks { display: flex; gap: 24px; align-items: center; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: var(--accent); }
+    .menu-btn { display: none; background: transparent; border: 1px solid var(--line); color: var(--text); padding: 8px 12px; border-radius: 10px; }
+    .hero { padding: 104px 0 86px; position: relative; overflow: hidden; }
+    .hero:after {
+      content: ""; position: absolute; width: 430px; height: 430px; right: -120px; top: 15px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(214,255,114,.13), transparent 68%); pointer-events: none;
+    }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .77rem; font-weight: 800; }
+    h1 { font-size: clamp(2.7rem, 7vw, 5.6rem); line-height: .99; letter-spacing: -.065em; max-width: 900px; margin: 22px 0; }
+    h1 em { color: var(--accent); font-style: normal; }
+    .hero p { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 999px; font-weight: 750; border: 1px solid var(--line); transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { color: #11150b; background: var(--accent); border-color: var(--accent); }
+    .btn.secondary:hover { background: var(--panel-soft); }
+    .hero-note { margin-top: 44px; color: #788391; font-size: .85rem; }
+    section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -.055em; line-height: 1.05; margin: 10px 0 0; }
+    .section-intro { color: var(--muted); max-width: 460px; margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 22px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 28px; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+    .quickfacts { display: grid; gap: 12px; }
+    .fact { padding: 18px 20px; border-radius: 16px; background: var(--panel-soft); }
+    .fact small { display: block; color: var(--muted); margin-bottom: 4px; }
+    .fact strong { font-size: 1rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .pill { border: 1px solid var(--line); color: #dce2e9; background: rgba(255,255,255,.025); padding: 9px 13px; border-radius: 999px; font-size: .9rem; }
+    .timeline { display: grid; gap: 14px; }
+    .job { display: grid; grid-template-columns: 220px 1fr; gap: 26px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .job:last-child { border-bottom: 0; }
+    .job .date { color: var(--accent); font-size: .85rem; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
+    .job h3 { margin: 0 0 5px; font-size: 1.2rem; }
+    .job .org { color: var(--muted); font-size: .95rem; }
+    .job ul { color: var(--muted); padding-left: 20px; margin: 14px 0 0; }
+    .job li { margin: 5px 0; }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .work-card { min-height: 235px; display: flex; flex-direction: column; justify-content: space-between; }
+    .work-card .number { color: var(--accent); font-weight: 850; font-size: .85rem; letter-spacing: .1em; }
+    .work-card h3 { font-size: 1.3rem; line-height: 1.2; margin: 24px 0 10px; }
+    .work-card p { font-size: .95rem; }
+    .work-card .label { color: #e6e9ed; font-size: .8rem; border-top: 1px solid var(--line); padding-top: 15px; margin-top: 24px; }
+    .education-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .edu { padding: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 18px; }
+    .edu h3 { margin: 0 0 6px; font-size: 1.04rem; }
+    .edu p { color: var(--muted); margin: 0; }
+    .contact-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; background: var(--accent); color: #11150b; border-radius: 26px; padding: clamp(26px, 5vw, 52px); }
+    .contact-panel h2 { max-width: 520px; }
+    .contact-panel p { color: #343d24; }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { padding: 14px 16px; border: 1px solid rgba(17,21,11,.25); border-radius: 13px; overflow-wrap: anywhere; }
+    .contact-link small { display: block; opacity: .7; font-size: .76rem; text-transform: uppercase; letter-spacing: .1em; }
+    footer { padding: 26px 0 38px; color: #818b98; font-size: .86rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .navlinks { display: none; position: absolute; top: 75px; left: 0; right: 0; padding: 20px; background: #11161c; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      .navlinks.open { display: flex; }
+      .menu-btn { display: block; }
+      .hero { padding: 78px 0 65px; }
+      .section-head { display: block; }
+      .section-intro { margin-top: 16px; }
+      .about-grid, .contact-panel { grid-template-columns: 1fr; }
+      .job { grid-template-columns: 1fr; gap: 9px; }
+      .work-grid, .education-grid { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">ODINNE <span>ZE.</span></a>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Focus areas</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="wrap">
+        <div class="eyebrow">Journalism · Media · Storytelling</div>
+        <h1>Words with purpose.<br><em>Stories that connect.</em></h1>
+        <p>I'm Odinne Zuleihat Eniola, a Journalism and Media Studies professional based in Lagos, Nigeria. I bring together research, clear writing, digital content, and strong organisational skills to communicate information effectively.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">Explore my work</a>
+          <a class="btn secondary" href="#contact">Get in touch ↗</a>
+        </div>
+        <div class="hero-note">Open to opportunities in journalism, media, communications, writing, and content creation.</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">01 / About</div><h2>A curious mind.<br>A communicator at heart.</h2></div>
+          <p class="section-intro">I enjoy gathering information, shaping stories, and helping people understand what matters.</p>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <p>My background spans journalism and media studies, online news writing, school-magazine contributions, administrative support, and documentation. Through academic and practical experiences, I have developed a flexible approach to communication, research, teamwork, and working under pressure.</p>
+            <p>I value accuracy, thoughtful storytelling, and content that is clear and relevant to its audience. I am committed to learning, improving my craft, and contributing meaningfully to a team.</p>
+            <div class="skills">
+              <span class="pill">Journalism & news writing</span><span class="pill">Research</span><span class="pill">Content writing</span><span class="pill">Editing</span><span class="pill">Communication</span><span class="pill">Documentation</span><span class="pill">Teamwork</span><span class="pill">Time management</span>
+            </div>
+          </div>
+          <div class="quickfacts">
+            <div class="fact"><small>Based in</small><strong>Ikeja, Lagos, Nigeria</strong></div>
+            <div class="fact"><small>Professional focus</small><strong>Journalism & Media Studies</strong></div>
+            <div class="fact"><small>Languages</small><strong>English · Yoruba · Ebira</strong></div>
+            <div class="fact"><small>Education</small><strong>HND, Journalism and Media Studies</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">02 / Experience</div><h2>Where I've contributed.</h2></div>
+          <p class="section-intro">Experience across media writing, administrative coordination, documentation, and education.</p>
+        </div>
+        <div class="timeline">
+          <article class="job">
+            <div class="date">Professional experience</div>
+            <div><h3>Administrative & Chartering Support</h3><div class="org">Lima Tango Shipping Ltd</div>
+              <ul><li>Supported day-to-day administrative activities and chartering operations.</li><li>Assisted with documentation and coordination related to vessel chartering.</li><li>Worked with vessel-related information, including MT. Agisyry and MT. Rose Mary.</li></ul>
+            </div>
+          </article>
+          <article class="job">
+            <div class="date">Industrial training</div>
+            <div><h3>Administrative Support</h3><div class="org">Nigerian Police Divisional Headquarters, Ikeja, Lagos</div>
+              <ul><li>Supported routine administrative and operational activities.</li><li>Assisted with written statements, record keeping, and incident documentation.</li><li>Helped publish news-related stories online when required.</li></ul>
+            </div>
+          </article>
+          <article class="job">
+            <div class="date">Media & writing</div>
+            <div><h3>News Blogger / Content Writer</h3><div class="org">Online news content</div>
+              <ul><li>Researched, wrote, edited, and published news stories for an online audience.</li><li>Applied journalistic writing and reporting principles to news content.</li><li>Used multimedia tools to support digital content and managed the publishing process.</li></ul>
+            </div>
+          </article>
+          <article class="job">
+            <div class="date">2019–2020</div>
+            <div><h3>Class Teacher</h3><div class="org">God’s Own Land Heritage School</div>
+              <ul><li>Taught and supervised pupils, prepared lessons, and supported academic development.</li><li>Maintained classroom discipline and assisted with school activities and administrative responsibilities.</li></ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">03 / Focus areas</div><h2>What I bring to the table.</h2></div>
+          <p class="section-intro">A selection of the work categories and capabilities reflected in my experience. Writing samples can be added here as they become available.</p>
+        </div>
+        <div class="work-grid">
+          <article class="card work-card"><div><div class="number">01 — REPORT</div><h3>News writing & reporting</h3><p>Researching information and developing clear, audience-focused news stories using journalistic principles.</p></div><div class="label">Research · News writing · Accuracy</div></article>
+          <article class="card work-card"><div><div class="number">02 — CREATE</div><h3>Digital content & blogging</h3><p>Writing, editing, publishing, and organising content for online audiences, with multimedia tools where appropriate.</p></div><div class="label">Content writing · Editing · Publishing</div></article>
+          <article class="card work-card"><div><div class="number">03 — COMMUNICATE</div><h3>Media & magazine writing</h3><p>Academic and practical writing experience, including contributions to a school magazine and media-related assignments.</p></div><div class="label">Storytelling · Research · Communication</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">04 / Education</div><h2>Learning and growth.</h2></div>
+          <p class="section-intro">My academic background in mass communication, journalism, and media studies.</p>
+        </div>
+        <div class="education-grid">
+          <div class="edu"><h3>Higher National Diploma (HND)</h3><p>Nigerian Institute of Journalism (NIJ)<br>Journalism and Media Studies · 2024–2026</p></div>
+          <div class="edu"><h3>Ordinary National Diploma (OND)</h3><p>Yaba College of Technology<br>Mass Communication · 2020–2023</p></div>
+          <div class="edu"><h3>Senior Secondary School Certificate</h3><p>Status College · 2013–2019</p></div>
+          <div class="edu"><h3>First School Leaving Certificate</h3><p>EJIT Primary School</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel">
+          <div><div class="eyebrow" style="color:#263016">05 / Contact</div><h2>Have a story, role, or project in mind?</h2><p>I'd be happy to connect about opportunities in journalism, writing, media, and communications.</p><a class="btn" style="background:#11150b;color:#f4f5f7;border-color:#11150b" href="mailto:Odinnezuleihat@gmail.com">Email me ↗</a></div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:Odinnezuleihat@gmail.com"><small>Email</small>Odinnezuleihat@gmail.com</a>
+            <a class="contact-link" href="tel:+2349037667757"><small>Phone</small>+234 903 766 7757</a>
+            <div class="contact-link"><small>Location</small>Ikeja, Lagos, Nigeria</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year"></span> Odinne Zuleihat Eniola</span><span>Journalism · Media · Storytelling</span></div></footer>
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('navlinks');
+    btn.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
